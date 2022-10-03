@@ -10,6 +10,7 @@ import { Component, OnInit, Input, Output ,EventEmitter } from "@angular/core";
 export class QuestionComponent implements OnInit {
   @Input() questionText: string;
   answer: boolean;
+  @Input() fileID: File;
 
   @Output() answerEvent: EventEmitter<surveyQuestion> = new EventEmitter();
   constructor() {}
@@ -19,7 +20,8 @@ export class QuestionComponent implements OnInit {
   getAnswer() {
     this.answerEvent.emit({ 
       question: this.questionText,
-      answer : this.answer
+      answer : this.answer,
+      file : this.fileID
     });
   }
 
