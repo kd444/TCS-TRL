@@ -1,9 +1,11 @@
-<div class="container screen7">
-  <div class="row">
-    <div class="screening">
-      <div class="main-content">
-        <div class="screen-head">
-          <span class="back-title">
+<!-- <div class="container screen7"> -->
+<!-- <div class="row"> -->
+<div class="screen7">
+    <div>
+        <div class="screening">
+            <div class="main-content">
+                <div class="screen-head">
+                    <span class="back-title">
             <img
               src="../../../assets/arrow-back-screen.svg"
               alt="back-arrow"
@@ -12,117 +14,283 @@
             <p>Screening</p>
           </span>
 
-          <div class="screen-step">
-            <ul>
-              <li #tab (click)="selectTab($event, 1)" class="active-tab">
-                <span class="tick-mark t1" [hidden]="isShow">
+                    <div class="screen-step">
+                        <ul>
+                            <li #tab (click)="selectTab($event, 1)" [ngClass]="tabId!=1?'disabled':'enabled'">
+                                <span class="tick-mark t1" [hidden]="isShow">
                   <img src="../../../assets/Green-Circle-Tick.svg" />
                 </span>
-                <!-- <span [hidden] = “isShow” ></span> -->
+                                <!-- <span [hidden] = “isShow” ></span> -->
 
-                1
-              </li>
-              <li #tab (click)="selectTab($event, 2)">
-                <span class="tick-mark t2" [hidden]="isShow1">
+                                TRL9
+                            </li>
+                            <li #tab (click)="selectTab($event, 2)" [ngClass]="tabId!=2?'disabled':'enabled'">
+                                <span class="tick-mark t2" [hidden]="isShow1">
                   <img src="../../../assets/Green-Circle-Tick.svg" />
-                </span>
-                2
-              </li>
-              <li #tab (click)="selectTab($event, 3)">
-                <span class="tick-mark t3" [hidden]="isShow2">
+                </span> TRL8
+                            </li>
+                            <li #tab (click)="selectTab($event, 3)" [ngClass]="tabId!=3?'disabled':'enabled'">
+                                <span class="tick-mark t3" [hidden]="isShow2">
                   <img src="../../../assets/Green-Circle-Tick.svg" />
-                </span>
-                3
-              </li>
-              <li #tab (click)="selectTab($event, 4)">
-                <span class="tick-mark t4" [hidden]="isShow3">
+                </span> TRL7
+                            </li>
+                            <li #tab (click)="selectTab($event, 4)" [ngClass]="tabId!=4?'disabled':'enabled'">
+                                <span class="tick-mark t4" [hidden]="isShow3">
                   <img src="../../../assets/Green-Circle-Tick.svg" />
-                </span>
-                4
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="screen-carea">
-          <div class="screen-que">
-            <div *ngIf="tabId ==1"> 
-              <p class="p1">
-                During the past 14 days: Have you been in close contact with a person diagnosed with COVID-19?
-              </p>
-              <div class="radio-sec">
-                <label class="container-chk">
+                </span> TRL6
+                            </li>
+                            <li #tab (click)="selectTab($event, 5)" [ngClass]="tabId!=5?'disabled':'enabled'">
+                                <span class="tick-mark t5" [hidden]="isShow4">
+                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                </span> TRL5
+                            </li>
+                            <li #tab (click)="selectTab($event, 6)" [ngClass]="tabId!=6?'disabled':'enabled'">
+                                <span class="tick-mark t6" [hidden]="isShow5">
+                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                </span> TRL4
+                            </li>
+                            <li #tab (click)="selectTab($event, 7)" [ngClass]="tabId!=7?'disabled':'enabled'">
+                                <span class="tick-mark t7" [hidden]="isShow6">
+                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                </span> TRL3
+                            </li>
+                            <li #tab (click)="selectTab($event, 8)" [ngClass]="tabId!=8?'disabled':'enabled'">
+                                <span class="tick-mark t8" [hidden]="isShow7">
+                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                </span> TRL2
+                            </li>
+                            <li #tab (click)="selectTab($event, 9)" [ngClass]="tabId!=9?'disabled':'enabled'">
+                                <span class="tick-mark t9" [hidden]="isShow8">
+                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                </span> TRL1
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="screen-carea">
+                    <div class="screen-que">
+                        <div *ngIf="tabId ==1">
+                            <p class="p1">
+                                {{this.tabParentQuestions[0]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
                   Yes
                   <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
                   <span class="checkmark"></span>
                 </label>
-                <label class="container-chk">
+                                <label class="container-chk">
                   No
                   <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
                   <span class="checkmark"></span>
                 </label>
-              </div>
-            </div>
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
 
-            <div *ngIf="tabId ==2"> 
-              <p class="p1">
-                During the past 14 days: Have you been outside the Kingdom or contacted many people or worked/presented at a health facility?
-              </p>
-              <div class="radio-sec">
-                <label class="container-chk">
+                        <div *ngIf="tabId ==2">
+                            <p class="p1">
+                                {{this.tabParentQuestions[1]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
                   Yes
                   <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
                   <span class="checkmark"></span>
                 </label>
-                <label class="container-chk">
+                                <label class="container-chk">
                   No
                   <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
                   <span class="checkmark"></span>
                 </label>
-              </div>
-            </div>
-            
-            <div *ngIf="tabId ==3"> 
-              <p class="p1">
-                Have you experienced any of the following symptoms during the past 14 days (Choose all that apply)
-              </p>
-              <div class="radio-sec">
-                <label class="container-chk">
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId ==3">
+                            <p class="p1">
+                                {{this.tabParentQuestions[2]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
                   Yes
                   <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
                   <span class="checkmark"></span>
                 </label>
-                <label class="container-chk">
+                                <label class="container-chk">
                   No
                   <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
                   <span class="checkmark"></span>
                 </label>
-              </div>
-            </div>
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
 
-            <div *ngIf="tabId ==4 "> 
-              <p class="p1">
-                Do you have any of the following disease or risk factors?(Choose all that apply)
-              </p>
-              <div class="radio-sec">
-                <label class="container-chk">
+                        <div *ngIf="tabId ==4 ">
+                            <p class="p1">
+                                {{this.tabParentQuestions[3]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
                   Yes
                   <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
                   <span class="checkmark"></span>
-                </label>
-                <label class="container-chk">
+                                </label>
+                                <label class="container-chk">
                   No
                   <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
                   <span class="checkmark"></span>
                 </label>
-              </div>
-            </div>
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
 
-            <div class="comn-cnt">
-              <p> 
-                If your answer is yes, choose all that apply from the following.
-              </p>
-            </div>
-            <!-- <div class="radio-btn">
+                        <div *ngIf="tabId ==5 ">
+                            <p class="p1">
+                                {{this.tabParentQuestions[4]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
+                  Yes
+                  <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
+                  <span class="checkmark"></span>
+                                </label>
+                                <label class="container-chk">
+                  No
+                  <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
+                  <span class="checkmark"></span>
+                </label>
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId ==6 ">
+                            <p class="p1">
+                                {{this.tabParentQuestions[5]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
+                  Yes
+                  <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
+                  <span class="checkmark"></span>
+                                </label>
+                                <label class="container-chk">
+                  No
+                  <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
+                  <span class="checkmark"></span>
+                </label>
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId ==7 ">
+                            <p class="p1">
+                                {{this.tabParentQuestions[6]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
+                  Yes
+                  <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
+                  <span class="checkmark"></span>
+                                </label>
+                                <label class="container-chk">
+                  No
+                  <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
+                  <span class="checkmark"></span>
+                </label>
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId ==8 ">
+                            <p class="p1">
+                                {{this.tabParentQuestions[7]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
+                  Yes
+                  <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
+                  <span class="checkmark"></span>
+                                </label>
+                                <label class="container-chk">
+                  No
+                  <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
+                  <span class="checkmark"></span>
+                </label>
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId ==9 ">
+                            <p class="p1">
+                                {{this.tabParentQuestions[8]}}
+                            </p>
+                            <div class="radio-sec">
+                                <label class="container-chk">
+                  Yes
+                  <input type="radio" value="Yes" (change)="ChangeVisiblity($event , tabId)" name="radioChk"/>
+                  <span class="checkmark"></span>
+                                </label>
+                                <label class="container-chk">
+                  No
+                  <input type="radio" value="No" (change)="ChangeVisiblity($event , tabId)" name="radioChk" />
+                  <span class="checkmark"></span>
+                </label>
+                            </div>
+                            <div>
+                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <br>
+                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <br>
+                            </div>
+                        </div>
+
+                        <div class="comn-cnt">
+                            <p>
+                                If your answer is yes, choose all that apply from the following.
+                            </p>
+                        </div>
+                        <!-- <div class="radio-btn">
               <input type="radio" id="yes" name="travel" value="Yes" />
               <label for="Yes"> Yes</label>
 
@@ -131,78 +299,86 @@
             </div> 
  -->
 
-            <div
-              *ngIf="tabId == 1"
-              
-              [ngClass]="showQues[1] === true ? 'questionarie-list-true' : 'questionarie-list-false' "
-            >
-              <div *ngFor="let question of questionsForTab1">
-                <question
-                  [questionText]="question"
-                  (answerEvent)="addData($event)"
-                >
-                </question>
-              </div>
-            </div>
+                        <div *ngIf="tabId == 1" [ngClass]="showQues[1] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
+                            <div *ngFor="let question of questionsForTab1">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'quesA ' + question">
+                                </question>
+                            </div>
+                        </div>
 
-            <div
-              *ngIf="tabId == 2"             
-              [ngClass]="showQues[2] === true ? 'questionarie-list-true' : 'questionarie-list-false' "
-            >
-            <!-- class="questionarie-list {{ this.showQue }}" -->
-              <div *ngFor="let question of questionsForTab2">
-                <question
-                  [questionText]="question"
-                  (answerEvent)="addData($event)"
-                >
-                </question>
-              </div>
-            </div>
+                        <div *ngIf="tabId == 2" [ngClass]="showQues[2] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
+                            <!-- class="questionarie-list {{ this.showQue }}" -->
+                            <div *ngFor="let question of questionsForTab2">
+                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                </question>
+                            </div>
+                        </div>
 
-            <div
-              *ngIf="tabId == 3"
-              [ngClass]="showQues[3] === true ? 'questionarie-list-true' : 'questionarie-list-false' "
-            >
-            <!-- class="questionarie-list {{ this.showQue }}" -->
-              <div *ngFor="let question of questionsForTab3">
-                <question
-                  [questionText]="question"
-                  (answerEvent)="addData($event)"
-                >
-                </question>
-              </div>
-            </div>
+                        <div *ngIf="tabId == 3" [ngClass]="showQues[3] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
+                            <!-- class="questionarie-list {{ this.showQue }}" -->
+                            <div *ngFor="let question of questionsForTab3">
+                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                </question>
+                            </div>
+                        </div>
 
-            <div
-              *ngIf="tabId == 4"              
-              [ngClass]="showQues[4] === true ? 'questionarie-list-true' : 'questionarie-list-false'" >
-              <div *ngFor="let question of questionsForTab4">
-                <question
-                  [questionText]="question"
-                  (answerEvent)="addData($event)"
-                >
-                </question>
-              </div>
+                        <div *ngIf="tabId == 4" [ngClass]="showQues[4] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
+                            <div *ngFor="let question of questionsForTab4">
+                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                </question>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId == 5" [ngClass]="showQues[5] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
+                            <div *ngFor="let question of questionsForTab4">
+                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                </question>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId == 6" [ngClass]="showQues[6] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
+                            <div *ngFor="let question of questionsForTab4">
+                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                </question>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId == 7" [ngClass]="showQues[7] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
+                            <div *ngFor="let question of questionsForTab4">
+                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                </question>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId == 8" [ngClass]="showQues[8] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
+                            <div *ngFor="let question of questionsForTab4">
+                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                </question>
+                            </div>
+                        </div>
+
+                        <div *ngIf="tabId == 9" [ngClass]="showQues[9] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
+                            <div *ngFor="let question of questionsForTab4">
+                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                </question>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="scre-button">
+                        <input type="submit" name="Submit" (click)="submitData()" />
+                    </div>
+                </div>
+                <div #modal *ngIf="false" class="modalContainer modal-dialog-centered">
+                    <div class="modalBody">
+                        <img src="../../../assets/Green-Circle-Tick.svg" class="tick-complt" />
+                        <p>
+                            Please accept the invitation in your e-mail and complete registration
+                        </p>
+                        <button class="modalClose" (click)="closeModal()">OK</button>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="scre-button">
-            <input type="submit" name="Submit" (click)="submitData()" />
-          </div>
         </div>
-        <div #modal *ngIf="false" class="modalContainer modal-dialog-centered">
-          <div class="modalBody">
-            <img
-              src="../../../assets/Green-Circle-Tick.svg"
-              class="tick-complt"
-            />
-            <p>
-              Please accept the invitation in your e-mail and complete
-              registration
-            </p>
-            <button class="modalClose" (click)="closeModal()">OK</button>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
