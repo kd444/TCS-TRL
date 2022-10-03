@@ -27,6 +27,12 @@ export class ScreeningComponent implements OnInit {
   isShow1: boolean = true;
   isShow2: boolean = true;
   isShow3: boolean = true;
+  isShow4: boolean = true;
+  isShow5: boolean = true;
+  isShow6: boolean = true;
+  isShow7: boolean = true;
+  isShow8: boolean = true;
+  isShow9: boolean = true;
   showSurvey: boolean = false;
   showModal: boolean = false;
   showQue: boolean = false;
@@ -36,7 +42,7 @@ export class ScreeningComponent implements OnInit {
 
   loggedInPatient: Patient;
 
-  showQues: boolean[] = [false , false , false ,false];
+  showQues: boolean[] = [false , false , false ,false, false, false, false, false, false];
 
   constructor(
     private router: Router,
@@ -45,53 +51,128 @@ export class ScreeningComponent implements OnInit {
   ) {}
 
   tabParentQuestions :string[] = [
-    "During the past 14 days: Have you been in close contact with a person diagnosed with COVID-19?",
-    "During the past 14 days: Have you been outside the United States or contacted many people or worked/presented at a health facility?",
-    "Have you experienced any of the following symptoms during the past 14 days (Choose all that apply)",
-    "Do you have any of the following disease or risk factors?(Choose all that apply)"
+    "Has the actual system successfully operated over full range of conditions in operational environment?",
+    "Has the actual system successfully operated in limited operational environment?",
+    "Has the actual system successfully operated in limited operational environment?",
+    "Has the engineering/pilot-scale prototype been demonstrated in relevant environment?",
+    "Has the laboratory scale prototype been validated in relevant environment? ",
+    "Has the component / system been validated in lab?",
+    "Has the proof of concept been demonstrated in a simulated environment?",
+    "Has the equipment and process concept been formulated?",
+    "Have the basic technology and principles been observed and reported?"
   ]
 
 
   questionsForTab1: string[] = [
-    "I share the same house with a person infected with the virus or is a member of my family",
-    "You have been in the same closed space for more than 20 minutes with an infected person (Such as house, joint residential unit, work place, class room, vehicle or plane)",
-    "You have been face-to-face  with a person infected with the virus for more than 20 minutes , less than 5 feet away from each other",
-    "I have medical history like Diabetes , Heart problems ,  blood pressure1You have touched or been exposed to the respiratory secretions of an infected person.",
-    "I am working in a health facility where I have contacted a positive case without protection ( neither he nor I were wearing masks)",
-    "You have been face-to-face with a person infected with the virus, less (more) than 5 feet away from each other.",
-    "You have been  in the same closed space for less than 20 minutes with an infected person (Such as house, same residential unit, work place, class room or vehicle)",
-    "I am not a health practitioner and have visited a health facility (Clinic, hospital, inpatient, waiting area), in the last 14 days"
+    "Academic environment",
+    "Some key process and safety requirements are identified",
+    "Predictions of elements of technology capability validated by Analytical Studies",
+    "Science known to extent that mathematical and/or computer models and simulations are possible",
+    "Preliminary system performance characteristics and measures have been identified and estimated",
+    "Predictions of elements of technology capability validated by Modeling and Simulation",
+    "No system components, just basic laboratory research equipment to verify physical principles",
+    "Laboratory experiments verify feasibility of application",
+    "Predictions of elements of technology capability validated by Laboratory Experiments",
+    "Customer representative identified to work with development team",
+    "Customer participates in requirements generation",
+    "Cross technology effects (if any) have begun to be identified",
+    "Design techniques have been identified/developed",
+    "Paper studies indicate that system components ought to work together",
+    "Customer identifies transition window(s) of opportunity",
+    "Performance Metrics for the system established",
+    "Scaling studies have been started",
+    "Current manufacturability concepts assessed",
+    "Sources of key components for laboratory testing identified",
+    "Scientific feasibility fully demonstrated",
+    "Analysis of present state of the art shows that technology fills a need",
+    "Risk areas identified in general terms",
+    "Risk mitigation strategies identified",
+    "Rudimentary best value analysis performed, not including cost factors",
+    "The individual components have been tested at a laboratory scale"
   ];
 
   questionsForTab2: string[] = [
-    "I have been outside the United State during the past 14 days",
-    "I leave my house and interact with people a lot",
-    "I am not a health practitioner  and have visited a health facility (Clinic, hospital, inpatient, waiting area)",
-    "I am a health practitioner or working in a health facility or providing services to patients and following required preventive measures.",
+    "Academic environment",
+    "Some key process and safety requirements are identified",
+    "Predictions of elements of technology capability validated by Analytical Studies",
+    "Science known to extent that mathematical and/or computer models and simulations are possible",
+    "Preliminary system performance characteristics and measures have been identified and estimated",
+    "Predictions of elements of technology capability validated by Modeling and Simulation",
+    "No system components, just basic laboratory research equipment to verify physical principles",
+    "Laboratory experiments verify feasibility of application",
+    "Predictions of elements of technology capability validated by Laboratory Experiments",
+    "Customer representative identified to work with development team",
+    "Customer participates in requirements generation",
+    "Cross technology effects (if any) have begun to be identified",
+    "Design techniques have been identified/developed",
+    "Paper studies indicate that system components ought to work together",
+    "Customer identifies transition window(s) of opportunity",
+    "Performance Metrics for the system established",
+    "Scaling studies have been started",
+    "Current manufacturability concepts assessed",
+    "Sources of key components for laboratory testing identified",
+    "Scientific feasibility fully demonstrated",
+    "Analysis of present state of the art shows that technology fills a need",
+    "Risk areas identified in general terms",
+    "Risk mitigation strategies identified",
+    "Rudimentary best value analysis performed, not including cost factors",
+    "The individual components have been tested at a laboratory scale"
   ];
 
   questionsForTab3: string[] = [
-    "High fever",
-    "Cough (New or more than usual)",
-    "Sore throat",
-    " Shortness of breath (First time or more than usual)",
-    "Tremors and body pain (First time)",
-    "Confusion",
+    "Academic environment",
+    "Some key process and safety requirements are identified",
+    "Predictions of elements of technology capability validated by Analytical Studies",
+    "Science known to extent that mathematical and/or computer models and simulations are possible",
+    "Preliminary system performance characteristics and measures have been identified and estimated",
+    "Predictions of elements of technology capability validated by Modeling and Simulation",
+    "No system components, just basic laboratory research equipment to verify physical principles",
+    "Laboratory experiments verify feasibility of application",
+    "Predictions of elements of technology capability validated by Laboratory Experiments",
+    "Customer representative identified to work with development team",
+    "Customer participates in requirements generation",
+    "Cross technology effects (if any) have begun to be identified",
+    "Design techniques have been identified/developed",
+    "Paper studies indicate that system components ought to work together",
+    "Customer identifies transition window(s) of opportunity",
+    "Performance Metrics for the system established",
+    "Scaling studies have been started",
+    "Current manufacturability concepts assessed",
+    "Sources of key components for laboratory testing identified",
+    "Scientific feasibility fully demonstrated",
+    "Analysis of present state of the art shows that technology fills a need",
+    "Risk areas identified in general terms",
+    "Risk mitigation strategies identified",
+    "Rudimentary best value analysis performed, not including cost factors",
+    "The individual components have been tested at a laboratory scale"
   ];
 
   questionsForTab4: string[] = [
-    "Asthma",
-    "Chronic lung diseases",
-    "Kidney failure",
-    "Heart diseases",
-    "Diabetes",
-    "Hypertension",
-    "Cancer and tumors",
-    "Immunodeficiency",
-    "Taking Immunosuppressive drug",
-    "Taking pain reliever or fever reducer on a daily basis",
-    "My age is over 60",
-    "Obesity with body mass index 40 or higher",
+    "Academic environment",
+    "Some key process and safety requirements are identified",
+    "Predictions of elements of technology capability validated by Analytical Studies",
+    "Science known to extent that mathematical and/or computer models and simulations are possible",
+    "Preliminary system performance characteristics and measures have been identified and estimated",
+    "Predictions of elements of technology capability validated by Modeling and Simulation",
+    "No system components, just basic laboratory research equipment to verify physical principles",
+    "Laboratory experiments verify feasibility of application",
+    "Predictions of elements of technology capability validated by Laboratory Experiments",
+    "Customer representative identified to work with development team",
+    "Customer participates in requirements generation",
+    "Cross technology effects (if any) have begun to be identified",
+    "Design techniques have been identified/developed",
+    "Paper studies indicate that system components ought to work together",
+    "Customer identifies transition window(s) of opportunity",
+    "Performance Metrics for the system established",
+    "Scaling studies have been started",
+    "Current manufacturability concepts assessed",
+    "Sources of key components for laboratory testing identified",
+    "Scientific feasibility fully demonstrated",
+    "Analysis of present state of the art shows that technology fills a need",
+    "Risk areas identified in general terms",
+    "Risk mitigation strategies identified",
+    "Rudimentary best value analysis performed, not including cost factors",
+    "The individual components have been tested at a laboratory scale"
   ];
 
   loopArray: number[] = [1, 2, 3, 4, 5, 6, 7];
@@ -108,6 +189,22 @@ export class ScreeningComponent implements OnInit {
     if (id == 4) {
       this.isShow2 = false;
     }
+    if (id == 5){
+      this.isShow3 = false;
+    }
+    if (id == 6){
+      this.isShow4 = false;
+    }
+    if (id == 7){
+      this.isShow5 = false;
+    }
+    if (id == 8){
+      this.isShow6 = false;
+    }
+    if (id == 9){
+      this.isShow7 = false;
+    }
+
 
     this.elTabs.forEach((tab) =>
       tab.nativeElement.classList.remove("active-tab")
@@ -116,7 +213,9 @@ export class ScreeningComponent implements OnInit {
     event.target.classList.add("active-tab");
   }
   addData(event) {
-    this.dataQA[event.question] = event.answer;
+    this.dataQA[event.question] = [event.answer, event.file];
+    console.log(this.dataQA);
+    
   }
   submitData() {
     // send data to db
@@ -208,11 +307,16 @@ export class ScreeningComponent implements OnInit {
   ChangeVisiblity(e , tabId) {
 
     if (e.target.value == "Yes") {
-      this.showQue = true;
+      // this.showQue = true;
       this.showQues[tabId] = true;
+      
     } else {
-      this.showQue = false;
+      // this.showQue = false;
       this.showQues[tabId] = false;
+      if(tabId != 9){
+        this.tabId = tabId + 1;
+        this.selectTab(tabId, this.tabId)
+      }
     }
   }
 }
