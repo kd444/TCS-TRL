@@ -29,7 +29,7 @@ export class MainService {
   }
 
   getPatient(patient: Patient) {
-    return this.firestore.collection('patients').doc(patient.mobileNumber).get();
+    return this.firestore.collection('patients').doc(patient.projectName).get();
   }
   
 
@@ -38,7 +38,9 @@ export class MainService {
   }
 
   createPatient(patient: Patient){
-    return this.firestore.collection('patients').doc(patient.mobileNumber).set(patient);
+    console.log("TTTTTTTTTTTT");
+    console.log(patient);
+    return this.firestore.collection('patients').doc(patient.projectName).set(patient);
   }
 
   updatePatient(patient: Patient){

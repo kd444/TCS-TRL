@@ -1,6 +1,8 @@
 .parent{
-  background-image : url('../../../assets/bg-pattern.svg');
+  /*background-image : url('../../../assets/bg-pattern.svg');
   background-repeat: no-repeat;
+  background-size: cover;
+  */
 }
 
 
