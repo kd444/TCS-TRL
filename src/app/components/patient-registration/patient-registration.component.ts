@@ -74,29 +74,31 @@ export class PatientRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.insertForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      sex: ['', Validators.required],
-      age: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      patientLocation: ['', Validators.required],
-      zipCode: ['', Validators.required],
-      mobileNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      projectName: ['', Validators.required],
+      projectReferenceNumber: ['', Validators.required],
+      //sex: ['', Validators.required],      
+      organizationName: ['', Validators.required],
+      //state: ['', Validators.required],
+      fundingAuthority: ['', Validators.required],
+      fundingAmount:'',
+      projectDomain:['', Validators.required],
+      projectCriticality:['', Validators.required],
+      projectStartDate: ['', Validators.required],
+      projectEndDate: ['', Validators.required],
+      projectNextReviewDate: ['', Validators.required],
+      projectLead: '',
+      roleTrlAssessment: ['', Validators.required],
+      //zipCode: ['', Validators.required],
+      //mobileNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       emailId: ['', Validators.required],
-      password: ['', Validators.required],
+      trlAssessmentDate: ['', Validators.required],
+      //password: ['', Validators.required],
       fullName: '',
       relation: '',
       familyMobileNumber: ['', Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
       // familyMemberAge:'',
       userType : ['patient'],
-      category : ['Pending'],
-      fundingAmount:'',
-      pStartDate: ['', Validators.required],
-      nxtReviewDate: ['', Validators.required],
-      pLead: '',
-      roleTrl: '',
-
+      category : ['Pending']
     });
   }
 

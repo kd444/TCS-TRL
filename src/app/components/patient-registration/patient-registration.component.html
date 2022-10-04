@@ -9,7 +9,7 @@
           name="options"
           [(ngModel)]="options"
           type="radio"
-          value="As patient"
+          value="As Company"
         />
         <label class="radio-inline patient-clinician-label"> As Company</label>
       </div>
@@ -19,7 +19,7 @@
           name="options"
           [(ngModel)]="options"
           type="radio"
-          value="As Clinician"
+          value="As Approval"
         />
         <label class="radio-inline patient-clinician-label">
           As Approval</label
@@ -27,28 +27,28 @@
       </div>
     </div>
 
-    <div *ngIf="options === 'As patient'">
+    <div *ngIf="options === 'As Company'">
       <form [formGroup]="insertForm" autocomplete="off">
         <!--  (ngSubmit)="onSubmit()" -->
         <mat-horizontal-stepper>
           <mat-step label="Personal Details">
             <div class="form-group">
               <input
-                formControlName="firstName"
-                name="firstName"
-                id="firstName"
+                formControlName="projectName"
+                name="projectName"
+                id="projectName"
                 class="form-control col-xs-12 col-md-12"
                 placeholder="Project Name"
               />
 
               <div
                 *ngIf="
-                  formControls.firstName.touched &&
-                  formControls.firstName.invalid
+                  formControls.projectName.touched &&
+                  formControls.projectName.invalid
                 "
                 class="alert alert-danger"
               >
-                <div *ngIf="formControls.firstName.errors.required">
+                <div *ngIf="formControls.projectName.errors.required">
                   Project name is required.
                 </div>
               </div>
@@ -56,20 +56,20 @@
 
             <div class="form-group">
               <input
-                formControlName="lastName"
-                name="lastName"
-                id="lastName"
+                formControlName="projectReferenceNumber"
+                name="projectReferenceNumber"
+                id="projectReferenceNumber"
                 class="form-control col-xs-12 col-md-12"
                 placeholder="Project Reference Number"
               />
 
               <div
                 *ngIf="
-                  formControls.lastName.touched && formControls.lastName.invalid
+                  formControls.projectReferenceNumber.touched && formControls.projectReferenceNumber.invalid
                 "
                 class="alert alert-danger"
               >
-                <div *ngIf="formControls.lastName.errors.required">
+                <div *ngIf="formControls.projectReferenceNumber.errors.required">
                   Project Reference Number is required.
                 </div>
               </div>
@@ -77,18 +77,18 @@
 
             <div class="form-group">
               <input
-                formControlName="city"
-                name="city"
-                id="city"
+                formControlName="organizationName"
+                name="organizationName"
+                id="organizationName"
                 class="form-control col-xs-12 col-md-12"
                 placeholder="Organization Name"
               />
 
               <div
-                *ngIf="formControls.city.touched && formControls.city.invalid"
+                *ngIf="formControls.organizationName.touched && formControls.organizationName.invalid"
                 class="alert alert-danger"
               >
-                <div *ngIf="formControls.city.errors.required">
+                <div *ngIf="formControls.organizationName.errors.required">
                   Organization Name is required.
                 </div>
               </div>
@@ -108,21 +108,21 @@
 
             <div class="form-group">
               <input
-                formControlName="patientLocation"
-                name="patientLocation"
-                id="patientLocation"
+                formControlName="fundingAuthority"
+                name="fundingAuthority"
+                id="fundingAuthority"
                 class="form-control col-xs-12 col-md-12"
                 placeholder="Funding Authority"
               />
 
               <div
                 *ngIf="
-                  formControls.patientLocation.touched &&
-                  formControls.patientLocation.invalid
+                  formControls.fundingAuthority.touched &&
+                  formControls.fundingAuthority.invalid
                 "
                 class="alert alert-danger"
               >
-                <div *ngIf="formControls.patientLocation.errors.required">
+                <div *ngIf="formControls.fundingAuthority.errors.required">
                   Funding Authority is required.
                 </div>
               </div>
@@ -134,36 +134,44 @@
                 name="fundingAmount"
                 id="fundingAmount"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Funding amount"
+                placeholder="Funding Amount"
                 type="number"
               />
             </div>
 
             <div class="form-group">  
-              <input
-                formControlName="patientLocation"
-                name="patientLocation"
-                id="patientLocation"
+              <select
+                formControlName="projectDomain"
+                name="projectDomain"
+                id="projectDomain"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Project Domain"
-              />
+              >
+                <option label="Project Domain" disabled></option>
+                <option label="Healthcare" value="Healthcare">Healthcare</option>
+                <option label="Aerospace" value="Aerospace">Aerospace</option>
+                <option label="Engineering" value="Engineering">Engineering</option>
+                <option label="Other" value="Other">Other</option>
+              </select>
             </div>
 
             <div class="form-group">  
-              <input
-                formControlName="patientLocation"
-                name="patientLocation"
-                id="patientLocation"
+              <select
+                formControlName="projectCriticality"
+                name="projectCriticality"
+                id="projectCriticality"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Project Criticality"
-              />
+              >
+                <option label="Project Criticality" disabled></option>
+                <option label="High" value="High">High</option>
+                <option label="Medium" value="Medium">Medium</option>
+              </select>
             </div>
 
             <div class="form-group">
               <input
-                formControlName="pStartDate"
-                name="pStartDate"
-                id="pStartDate"
+                formControlName="projectStartDate"
+                name="projectStartDate"
+                id="projectStartDate"
                 class="form-control col-xs-12 col-md-12"
                 placeholder="Project Start Date"
                 type="date"
@@ -173,11 +181,11 @@
 
             <div class="form-group">
               <input
-                formControlName="pStartDate"
-                name="pStartDate"
-                id="pStartDate"
+                formControlName="projectEndDate"
+                name="projectEndDate"
+                id="projectEndDate"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Planned End Date"
+                placeholder="Project End Date"
                 type="date"
                 value=""
               />
@@ -185,9 +193,9 @@
             
             <div class="form-group">
               <input
-                formControlName="nxtReviewDate"
-                name="nxtReviewDate"
-                id="nxtReviewDate"
+                formControlName="projectNextReviewDate"
+                name="projectNextReviewDate"
+                id="projectNextReviewDate"
                 class="form-control col-xs-12 col-md-12"
                 placeholder="Next Review Date (tentative)"
                 type="date"
@@ -197,22 +205,26 @@
 
             <div class="form-group">  
               <input
-                formControlName="pLead"
-                name="pLead"
-                id="pLead"
+                formControlName="projectLead"
+                name="projectLead"
+                id="projectLead"
                 class="form-control col-xs-12 col-md-12"
                 placeholder="Project Lead"
               />
             </div>
 
             <div class="form-group">  
-              <input
-                formControlName="roleTrl"
-                name="roleTrl"
-                id="roleTrl"
+              <select
+                formControlName="roleTrlAssessment"
+                name="roleTrlAssessment"
+                id="roleTrlAssessment"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Role for this TRL assessment"
-              />
+              >
+                <option label="Role for this TRL assessment" disabled></option>
+                <option label="Project Lead" value="Project Lead">Project Lead</option>
+                <option label="Project Team Member" value="Project Team Member">Project Team Member</option>
+                <option label="Assigned Reviewer" value="Assigned Reviewer">Assigned Reviewer</option>
+              </select>
             </div>
 
             <div class="form-group">
@@ -239,9 +251,9 @@
 
             <div class="form-group">
               <input
-                formControlName="age"
-                name="age"
-                id="age"
+                formControlName="trlAssessmentDate"
+                name="trlAssessmentDate"
+                id="trlAssessmentDate"
                 class="form-control col-xs-12 col-md-12"
                 placeholder="Date of TRL assessment"
                 type="date"
@@ -330,7 +342,7 @@
               <button
                 type="submit"
                 class="button1"
-                [ngClass]="consent === false ? 'opacityHalf' : 'opacityFull'"
+                [ngClass]="consent === false ? 'opaorganizationNameHalf' : 'opaorganizationNameFull'"
                 [disabled]="consent === false"
                 (click)="onSubmit()"
               >
@@ -361,7 +373,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="options === 'As Clinician'">
+  <div *ngIf="options === 'As Approval'">
     <app-clinician-registration (modalOpen)="openModal()">
     </app-clinician-registration>
   </div>
@@ -372,8 +384,8 @@
       <p>
         Your registration has been submitted successfully.
       </p>
-      <p *ngIf="options === 'As patient'">Please login to take screening.</p>
-      <p *ngIf="options === 'As Clinician'">
+      <p *ngIf="options === 'As Company'">Please login to take screening.</p>
+      <p *ngIf="options === 'As Approval'">
         Please check your registered email.
       </p>
       <p>Thank you</p>

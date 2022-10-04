@@ -1,16 +1,24 @@
 export interface Patient {
     id: string;
-    firstName: string;
-    lastName: string;
-    city: string;
-    state: string;
-    patientLocation:string;
+    projectName: string;
+    projectReferenceNumber: string;
+    organizationName: string;
+    //state: string;
+    fundingAuthority:string;
+    fundingAmount:string;
+    projectDomain?: "Healthcare" | "Aerospace" | "Engineering" | "Other",
+    projectCriticality?: "High" | "Medium",
+    projectStartDate:string;
+    projectNextReviewDate: string;
+    projectLead: string,
+    roleTrlAssessment?: "Project Lead" | "Project Team Member" | "Assigned Reviewer",
     zipCode: string;
-    mobileNumber: string;
+    //mobileNumber: string;
     emailId: string;
-    age: number;
-    sex: string;
-    password: string;
+    trlAssessmentDate: string;
+    //age: number;
+    //sex: string;
+    //password: string;
     fullName: string;
     relation:string;
     familyMobileNumber:string;
