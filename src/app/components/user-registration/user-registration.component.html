@@ -25,7 +25,7 @@
     <div *ngIf="options === 'Reviewer' || options === 'User'">
       <form [formGroup]="insertForm" autocomplete="off">
         <!--  (ngSubmit)="onSubmit()" -->
-        <input type="hidden" formControlName="userType" id="userType" name="userType" [ngModel]="options" [value]="options === 'As Reviewer'?'Reviewer':'User'" />
+        <input type="hidden" formControlName="userType" id="userType" name="userType" [ngModel]="options" />
         <div class="form-group">
           <input
             formControlName="firstName"

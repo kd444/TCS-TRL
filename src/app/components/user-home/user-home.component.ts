@@ -4,7 +4,7 @@ import { MainService } from 'src/app/services/main.service';
 import { Component, OnInit } from '@angular/core';
 import { faChevronRight, faUser, faCog } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
-import { Patient } from 'src/app/interfaces/user';
+import { User } from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-user-home',
@@ -17,9 +17,9 @@ export class UserHomeComponent implements OnInit {
   faUser = faUser;
   faCog = faCog;
   patientName : string ;
-  loggedInPatient : Patient;
+  loggedInPatient : User;
 
-  //allowTriageQuestionsRouting :boolean = true;
+  allowTriageQuestionsRouting :boolean = true;
   displaySuccessPopOver : boolean = false;
 
   constructor(private mainService : MainService ,
