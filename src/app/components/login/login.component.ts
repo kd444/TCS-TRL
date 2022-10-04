@@ -1,6 +1,7 @@
 import { Clinician } from "src/app/interfaces/clinician";
 import { Patient } from "src/app/interfaces/patient";
 import { MainService } from "src/app/services/main.service";
+import { User } from "src/app/interfaces/user";
 
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   userName: string;
   password: string;
   patients: Patient[];
+  users: User[];
   faUser = faUserCircle;
   faUnlock =faUnlockAlt;
   faEye =faEye;
