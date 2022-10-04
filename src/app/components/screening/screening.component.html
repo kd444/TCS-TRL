@@ -11,7 +11,7 @@
               alt="back-arrow"
               (click)="navigateBack()"
             />
-            <p>Screening</p>
+            <p>TRL Assessment</p>
           </span>
 
                     <div class="screen-step">
@@ -86,9 +86,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -110,9 +110,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -134,9 +134,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -158,9 +158,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -182,9 +182,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -206,9 +206,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -230,9 +230,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -254,9 +254,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -278,9 +278,9 @@
                 </label>
                             </div>
                             <div>
-                                <textarea name="'Question' + tabId" id="'Question' + tabId + ' comments'" cols="100" rows="3"></textarea>
+                                <textarea name="'Question ' + {{TRLTextArea}}" [(ngModel)]="TRLTextArea" cols="100" rows="3"></textarea>
                                 <br>
-                                <input type="file" id="'Question ' + tabId + ' file_input'" name="'Question ' + tabId">
+                                <input type="file" id="{{TRLFile}}" name="'Question ' + {{TRLFile}}">
                                 <br>
                             </div>
                         </div>
@@ -301,7 +301,7 @@
 
                         <div *ngIf="tabId == 1" [ngClass]="showQues[1] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
                             <div *ngFor="let question of questionsForTab1">
-                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'quesA ' + question">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL9 ' + question">
                                 </question>
                             </div>
                         </div>
@@ -309,7 +309,7 @@
                         <div *ngIf="tabId == 2" [ngClass]="showQues[2] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
                             <!-- class="questionarie-list {{ this.showQue }}" -->
                             <div *ngFor="let question of questionsForTab2">
-                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL8 ' + question">
                                 </question>
                             </div>
                         </div>
@@ -317,56 +317,56 @@
                         <div *ngIf="tabId == 3" [ngClass]="showQues[3] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
                             <!-- class="questionarie-list {{ this.showQue }}" -->
                             <div *ngFor="let question of questionsForTab3">
-                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL7 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 4" [ngClass]="showQues[4] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
                             <div *ngFor="let question of questionsForTab4">
-                                <question [questionText]="question" (answerEvent)="addData($event)">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL6 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 5" [ngClass]="showQues[5] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab4">
-                                <question [questionText]="question" (answerEvent)="addData($event)">
+                            <div *ngFor="let question of questionsForTab5">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL5 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 6" [ngClass]="showQues[6] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab4">
-                                <question [questionText]="question" (answerEvent)="addData($event)">
+                            <div *ngFor="let question of questionsForTab6">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL4 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 7" [ngClass]="showQues[7] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab4">
-                                <question [questionText]="question" (answerEvent)="addData($event)">
+                            <div *ngFor="let question of questionsForTab7">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL3 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 8" [ngClass]="showQues[8] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab4">
-                                <question [questionText]="question" (answerEvent)="addData($event)">
+                            <div *ngFor="let question of questionsForTab8">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL2 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 9" [ngClass]="showQues[9] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab4">
-                                <question [questionText]="question" (answerEvent)="addData($event)">
+                            <div *ngFor="let question of questionsForTab9">
+                                <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL1 ' + question">
                                 </question>
                             </div>
                         </div>
 
                     </div>
                     <div class="scre-button">
-                        <input type="submit" name="Submit" (click)="submitData()" />
+                        <input type="submit" name="Submit" (click)="submitData(tabId)" />
                     </div>
                 </div>
                 <div #modal *ngIf="false" class="modalContainer modal-dialog-centered">

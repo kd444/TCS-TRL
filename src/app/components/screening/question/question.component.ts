@@ -21,7 +21,8 @@ export class QuestionComponent implements OnInit {
     this.answerEvent.emit({ 
       question: this.questionText,
       answer : this.answer,
-      file : this.fileID
+      file : this.fileID,
+      comment: ""
     });
   }
 
