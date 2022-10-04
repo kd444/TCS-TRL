@@ -90,7 +90,13 @@ export class PatientRegistrationComponent implements OnInit {
       familyMobileNumber: ['', Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")],
       // familyMemberAge:'',
       userType : ['patient'],
-      category : ['Pending']
+      category : ['Pending'],
+      fundingAmount:'',
+      pStartDate: ['', Validators.required],
+      nxtReviewDate: ['', Validators.required],
+      pLead: '',
+      roleTrl: '',
+
     });
   }
 
