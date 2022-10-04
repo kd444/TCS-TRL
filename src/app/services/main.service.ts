@@ -18,8 +18,8 @@ export class MainService {
   loggedInUser : any ;
   allPatients : Patient[];
   hideShowScreeingPopOver : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  
-
+  allUsers : User[];
+  allReviewers : Reviewer[];
   allClinicians : Clinician[] = [];
   constructor(private firestore: AngularFirestore ,
               private router : Router) { }
@@ -38,9 +38,24 @@ export class MainService {
   }
 
   createPatient(patient: Patient){
-    console.log("TTTTTTTTTTTT");
-    console.log(patient);
     return this.firestore.collection('patients').doc(patient.projectName).set(patient);
+  }
+
+  getAllUsers() {
+    return this.firestore.collection('users').snapshotChanges();
+  }
+
+  getUser(user: User) {
+    return this.firestore.collection('users').doc(user.emailId).get();
+  }
+
+  createUser(user: User){
+    return this.firestore.collection('users').doc(user.emailId).set(user);
+  }
+
+  updateUser(user: User){
+    delete user.id;
+    this.firestore.doc('users/' + user.id).update(user);
   }
 
   updatePatient(patient: Patient){
@@ -92,6 +107,14 @@ export class MainService {
           console.log("*****" ,data);
           return data;
         })
+  }
+
+  storeAllUsers(users : User[]){
+    this.allUsers = users;
+  }
+
+  storeAllReviewers(reviewers : Reviewer[]){
+    this.allReviewers = reviewers;
   }
 
   storeAllClinicians(clinicians : Clinician[]){

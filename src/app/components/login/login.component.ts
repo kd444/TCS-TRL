@@ -32,44 +32,46 @@ export class LoginComponent implements OnInit {
 
   submitCredentials() {
     
-    this.mainService.getPatients().subscribe(patientsData =>{
-      let patients = patientsData.map((data) => {
+    //this.mainService.getPatients().subscribe(patientsData =>{
+      /*let patients = patientsData.map((data) => {
         return {
           id: data.payload.doc.id,
           ...(data.payload.doc.data() as Patient),
         } as Patient;
-      });
-      this.mainService.getAllClinicians().subscribe(cliniciansData =>{
-        let clinicians =  cliniciansData.map((data) => {
+      });*/
+      this.mainService.getAllUsers().subscribe(usersData =>{
+        let users =  usersData.map((data) => {
           return {
             id: data.payload.doc.id,
-            ...(data.payload.doc.data() as Clinician),
-          } as Clinician;
-        });
-        
-        this.mainService.storeAllClinicians(clinicians);
-        this.mainService.storeAllPatients(patients);
-        let person;
+            ...(data.payload.doc.data() as User),
+          } as User;
+        }).filter((item: User) => item.userType === 'User');
 
-        let users = [...patients, ...clinicians];
+        let reviewers =  usersData.map((data) => {
+          return {
+            id: data.payload.doc.id,
+            ...(data.payload.doc.data() as Reviewer),
+          } as Reviewer;
+        }).filter((item: Reviewer) => item.userType === 'Reviewer');
+
+        this.mainService.storeAllUsers(users);
+        this.mainService.storeAllReviewers(reviewers);
+        let person;
+        let allUsers = [...users, ...reviewers];
   
-        
-        person = users.find((existingUser) => {
+        person = allUsers.find((existingUser) => {
           return ((existingUser.emailId === this.userName && existingUser.password === this.password) ||
                   (existingUser.mobileNumber === this.userName && existingUser.password === this.password));
-        });
-  
+        });        
+        
         if (person) {
           this.mainService.setLoggedInUser(person);
         } else {
           return;
         }
-        this.routeToHome(person);
+        this.routeToHome(person);        
       })
-
-    })
-
-
+    //})
 
     // zip([
     //   this.mainService.getAllClinicians(),
@@ -112,12 +114,12 @@ export class LoginComponent implements OnInit {
   }
 
   routeToHome(person) {
-    if (person.userType === "patient") {
-      this.router.navigate(["/patient-home"]);
+    if (person.userType === "User") {
+      this.router.navigate(["/user-home"]);
       return;
     }
-    if (person.userType === "clinician") {
-      this.router.navigate(["/clinician-home"]);
+    if (person.userType === "Reviewer") {
+      this.router.navigate(["/reviewer-home"]);
       return;
     }
   }
@@ -143,6 +145,6 @@ export class LoginComponent implements OnInit {
   // }
 
   routeToRegistration() {
-    this.router.navigate(["/patient-registration"]);
+    this.router.navigate(["/user-registration"]);
   }
 }

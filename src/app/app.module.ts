@@ -33,6 +33,13 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
+import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
+import { ReviewerHomeComponent } from './components/reviewer-home/reviewer-home.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
+
+import { AssessmentReportLevelClearedComponent } from './components/assessment-report-level-cleared/assessment-report-level-cleared.component';
+import { AssessmentReportLevelNotClearedComponent } from './components/assessment-report-level-not-cleared/assessment-report-level-not-cleared.component';
+
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 
 @NgModule({
@@ -51,8 +58,12 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
     ScreeningComponent,
     QuestionComponent,
     ClinicianRegistrationComponent,
-    PatientRegistrationComponent
-    
+    PatientRegistrationComponent,
+    UserRegistrationComponent,
+    ReviewerHomeComponent,
+    UserHomeComponent,
+    AssessmentReportLevelClearedComponent,
+    AssessmentReportLevelNotClearedComponent
   ],
   imports: [
     BrowserModule,
