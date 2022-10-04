@@ -3,6 +3,7 @@ import { NavigationEnd } from '@angular/router';
 import { Router } from '@angular/router';
 import { Patient } from 'src/app/interfaces/patient';
 import { Injectable } from '@angular/core';
+import { User } from 'src/app/interfaces/user';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 
@@ -19,7 +20,7 @@ export class MainService {
   allPatients : Patient[];
   hideShowScreeingPopOver : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   allUsers : User[];
-  allReviewers : Reviewer[];
+  allReviewers : User[];
   allClinicians : Clinician[] = [];
   constructor(private firestore: AngularFirestore ,
               private router : Router) { }
@@ -113,7 +114,7 @@ export class MainService {
     this.allUsers = users;
   }
 
-  storeAllReviewers(reviewers : Reviewer[]){
+  storeAllReviewers(reviewers : User[]){
     this.allReviewers = reviewers;
   }
 
