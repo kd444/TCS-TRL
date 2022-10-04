@@ -11,7 +11,7 @@
           type="radio"
           value="As patient"
         />
-        <label class="radio-inline patient-clinician-label"> As patient</label>
+        <label class="radio-inline patient-clinician-label"> As Company</label>
       </div>
 
       <div class="col-xs-5" style="margin-right: 60px;">
@@ -22,7 +22,7 @@
           value="As Clinician"
         />
         <label class="radio-inline patient-clinician-label">
-          As clinician</label
+          As Approval</label
         >
       </div>
     </div>
@@ -38,7 +38,7 @@
                 name="firstName"
                 id="firstName"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="First Name"
+                placeholder="Project Name"
               />
 
               <div
@@ -49,7 +49,7 @@
                 class="alert alert-danger"
               >
                 <div *ngIf="formControls.firstName.errors.required">
-                  First name is required.
+                  Project name is required.
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@
                 name="lastName"
                 id="lastName"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Last Name"
+                placeholder="Project Reference Number"
               />
 
               <div
@@ -70,7 +70,7 @@
                 class="alert alert-danger"
               >
                 <div *ngIf="formControls.lastName.errors.required">
-                  Last name is required.
+                  Project Reference Number is required.
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@
                 name="city"
                 id="city"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="City"
+                placeholder="Organization Name"
               />
 
               <div
@@ -89,12 +89,12 @@
                 class="alert alert-danger"
               >
                 <div *ngIf="formControls.city.errors.required">
-                  City is required.
+                  Organization Name is required.
                 </div>
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <select
                 formControlName="state"
                 name="state"
@@ -104,7 +104,7 @@
                 <option label="State/Province" disabled></option>
                 <option *ngFor="let state of states">{{ state }}</option>
               </select>
-            </div>
+            </div> -->
 
             <div class="form-group">
               <input
@@ -112,7 +112,7 @@
                 name="patientLocation"
                 id="patientLocation"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Location"
+                placeholder="Funding Authority"
               />
 
               <div
@@ -123,55 +123,96 @@
                 class="alert alert-danger"
               >
                 <div *ngIf="formControls.patientLocation.errors.required">
-                  Location is required.
+                  Funding Authority is required.
                 </div>
               </div>
             </div>
 
             <div class="form-group">
               <input
-                formControlName="zipCode"
-                name="zipCode"
-                id="zipCode"
+                formControlName="fundingAmount"
+                name="fundingAmount"
+                id="fundingAmount"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Zip Code"
+                placeholder="Funding amount"
                 type="number"
               />
-              <div
-                *ngIf="
-                  formControls.zipCode.touched && formControls.zipCode.invalid
-                "
-                class="alert alert-danger"
-              >
-                <div *ngIf="formControls.zipCode.errors.required">
-                  Zip code is required.
-                </div>
-              </div>
+            </div>
+
+            <div class="form-group">  
+              <input
+                formControlName="patientLocation"
+                name="patientLocation"
+                id="patientLocation"
+                class="form-control col-xs-12 col-md-12"
+                placeholder="Project Domain"
+              />
+            </div>
+
+            <div class="form-group">  
+              <input
+                formControlName="patientLocation"
+                name="patientLocation"
+                id="patientLocation"
+                class="form-control col-xs-12 col-md-12"
+                placeholder="Project Criticality"
+              />
             </div>
 
             <div class="form-group">
               <input
-                formControlName="mobileNumber"
-                name="mobileNumber"
-                id="mobileNumber"
+                formControlName="pStartDate"
+                name="pStartDate"
+                id="pStartDate"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Mobile Number"
-                maxlength="10"
+                placeholder="Project Start Date"
+                type="date"
+                value=""
               />
-              <div
-                *ngIf="
-                  formControls.mobileNumber.touched &&
-                  formControls.mobileNumber.invalid
-                "
-                class="alert alert-danger"
-              >
-                <div *ngIf="formControls.mobileNumber.errors.required">
-                  Mobile Number is required.
-                </div>
-                <div *ngIf="formControls.mobileNumber.errors.pattern">
-                  Please, Enter 10 digit Mobile Number.
-                </div>
-              </div>
+            </div>
+
+            <div class="form-group">
+              <input
+                formControlName="pStartDate"
+                name="pStartDate"
+                id="pStartDate"
+                class="form-control col-xs-12 col-md-12"
+                placeholder="Planned End Date"
+                type="date"
+                value=""
+              />
+            </div>
+            
+            <div class="form-group">
+              <input
+                formControlName="nxtReviewDate"
+                name="nxtReviewDate"
+                id="nxtReviewDate"
+                class="form-control col-xs-12 col-md-12"
+                placeholder="Next Review Date (tentative)"
+                type="date"
+                value=""
+              />
+            </div>
+
+            <div class="form-group">  
+              <input
+                formControlName="pLead"
+                name="pLead"
+                id="pLead"
+                class="form-control col-xs-12 col-md-12"
+                placeholder="Project Lead"
+              />
+            </div>
+
+            <div class="form-group">  
+              <input
+                formControlName="roleTrl"
+                name="roleTrl"
+                id="roleTrl"
+                class="form-control col-xs-12 col-md-12"
+                placeholder="Role for this TRL assessment"
+              />
             </div>
 
             <div class="form-group">
@@ -180,7 +221,7 @@
                 name="emailId"
                 id="emailId"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Email"
+                placeholder="Contact email ID"
                 type="email"
               />
 
@@ -202,82 +243,10 @@
                 name="age"
                 id="age"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Date of Birth"
+                placeholder="Date of TRL assessment"
                 type="date"
                 value=""
                 onChange="this.setAttribute('value', this.value)"
-              />
-            </div>
-
-            <div class="form-group col-md-6">
-              <label for="sex" style="margin-right: 10px;">Sex</label>
-              <label class="radio-inline">
-                <input
-                  formControlName="sex"
-                  name="sex"
-                  id="male"
-                  type="radio"
-                  value="Male"
-                  style="margin: 0 0px 0 10px;"
-                />
-                Male
-              </label>
-
-              <label class="radio-inline">
-                <input
-                  formControlName="sex"
-                  name="sex"
-                  id="female"
-                  type="radio"
-                  value="Female"
-                  style="margin: 0 0px 0 10px;"
-                />
-                Female
-              </label>
-
-              <label class="radio-inline">
-                <input
-                  formControlName="sex"
-                  name="sex"
-                  id="other"
-                  type="radio"
-                  value="Non-binary"
-                  style="margin: 0 0px 0 10px;"
-                />
-                Non-binary
-              </label>
-            </div>
-
-            <div class="form-group">
-              <input
-                formControlName="password"
-                name="password"
-                id="password"
-                class="form-control col-xs-12 col-md-12"
-                placeholder="Password"
-                type="password"
-              />
-
-              <div
-                *ngIf="
-                  formControls.password.touched && formControls.password.invalid
-                "
-                class="alert alert-danger"
-              >
-                <div *ngIf="formControls.password.errors.required">
-                  Password is required.
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <input
-                formControlName="password"
-                name="password"
-                id="confirmPassword"
-                class="form-control col-xs-12 col-md-12"
-                placeholder="Confirm Password"
-                type="password"
               />
             </div>
 
@@ -308,18 +277,6 @@
                   placeholder="Full Name"
                 />
               </div>
-
-              <!-- <div class="form-group">
-                <input
-                  formControlName="relation"
-                  name="relation"
-                  id="relation"
-                  class="form-control col-xs-12 col-md-12"
-                  placeholder="Relation"
-                />
-              </div>
-              <div class="form-group"> -->
-
               <div class="form-group">
                 <select
                   formControlName="relation"
