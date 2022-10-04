@@ -19,7 +19,7 @@ export class UserHomeComponent implements OnInit {
   patientName : string ;
   loggedInPatient : Patient;
 
-  allowTriageQuestionsRouting :boolean = true;
+  //allowTriageQuestionsRouting :boolean = true;
   displaySuccessPopOver : boolean = false;
 
   constructor(private mainService : MainService ,
@@ -28,8 +28,8 @@ export class UserHomeComponent implements OnInit {
   ngOnInit() {
     this.loggedInPatient = this.mainService.getLoggedInUser();
     this.patientName = this.mainService.getLoggedInUser()?.firstName;
-    this.allowTriageQuestionsRouting  = this.loggedInPatient.surveyData ? false : true;
-    this.mainService.getHideShowScreeingPopOver().subscribe(boolVal=>this.displaySuccessPopOver = boolVal);
+    //this.allowTriageQuestionsRouting  = this.loggedInPatient.surveyData ? false : true;
+    //this.mainService.getHideShowScreeingPopOver().subscribe(boolVal=>this.displaySuccessPopOver = boolVal);
 
   }
 
