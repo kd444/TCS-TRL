@@ -42,19 +42,19 @@ export class LoginComponent implements OnInit {
         } as Patient;
       });*/
       this.mainService.getAllUsers().subscribe(usersData =>{
-        let users =  usersData.map((data) => {
+        let users = usersData.map((data) => {
           return {
             id: data.payload.doc.id,
             ...(data.payload.doc.data() as User),
           } as User;
         }).filter((item: User) => item.userType === 'User');
 
-        let reviewers =  usersData.map((data) => {
+        let reviewers = usersData.map((data) => {
           return {
             id: data.payload.doc.id,
-            ...(data.payload.doc.data() as Reviewer),
-          } as Reviewer;
-        }).filter((item: Reviewer) => item.userType === 'Reviewer');
+            ...(data.payload.doc.data() as User),
+          } as User;
+        }).filter((item: User) => item.userType === 'Reviewer');
 
         this.mainService.storeAllUsers(users);
         this.mainService.storeAllReviewers(reviewers);

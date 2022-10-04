@@ -3,7 +3,7 @@ export interface Patient {
     projectName: string;
     projectReferenceNumber: string;
     organizationName: string;
-    //state: string;
+    state: string;
     fundingAuthority:string;
     fundingAmount:string;
     projectDomain?: "Healthcare" | "Aerospace" | "Engineering" | "Other",
@@ -13,16 +13,20 @@ export interface Patient {
     projectLead: string,
     roleTrlAssessment?: "Project Lead" | "Project Team Member" | "Assigned Reviewer",
     zipCode: string;
-    //mobileNumber: string;
+    mobileNumber: string;
     emailId: string;
     trlAssessmentDate: string;
-    //age: number;
-    //sex: string;
+    firstName: string;
+    lastName: string;
+    city: string;
+    patientLocation: string;
+    age: number;
+    sex: string;
     //password: string;
     fullName: string;
     relation:string;
     familyMobileNumber:string;
-    // familyMemberAge:string;
+    familyMemberAge:string;
     
     surveyData?: any;
     userType : string;
