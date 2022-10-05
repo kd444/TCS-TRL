@@ -1,37 +1,11 @@
 <div class="parent">
-  <p class="heading">
-    Registration
-  </p>
+  <p class="heading">Registration</p>
   <div class="form-body">
-    <div class="center row">
-      <div class="col-xs-5">
-        <input
-          name="options"
-          [(ngModel)]="options"
-          type="radio"
-          value="As Company"
-        />
-        <label class="radio-inline patient-clinician-label"> As Company</label>
-      </div>
-
-      <div class="col-xs-5" style="margin-right: 60px;">
-        <input
-          name="options"
-          [(ngModel)]="options"
-          type="radio"
-          value="As Approval"
-        />
-        <label class="radio-inline patient-clinician-label">
-          As Approval</label
-        >
-      </div>
-    </div>
-
-    <div *ngIf="options === 'As Company'">
+    <div>
       <form [formGroup]="insertForm" autocomplete="off">
         <!--  (ngSubmit)="onSubmit()" -->
         <mat-horizontal-stepper>
-          <mat-step label="Personal Details">
+          <mat-step label="Project Details">
             <div class="form-group">
               <input
                 formControlName="projectName"
@@ -65,11 +39,14 @@
 
               <div
                 *ngIf="
-                  formControls.projectReferenceNumber.touched && formControls.projectReferenceNumber.invalid
+                  formControls.projectReferenceNumber.touched &&
+                  formControls.projectReferenceNumber.invalid
                 "
                 class="alert alert-danger"
               >
-                <div *ngIf="formControls.projectReferenceNumber.errors.required">
+                <div
+                  *ngIf="formControls.projectReferenceNumber.errors.required"
+                >
                   Project Reference Number is required.
                 </div>
               </div>
@@ -85,7 +62,10 @@
               />
 
               <div
-                *ngIf="formControls.organizationName.touched && formControls.organizationName.invalid"
+                *ngIf="
+                  formControls.organizationName.touched &&
+                  formControls.organizationName.invalid
+                "
                 class="alert alert-danger"
               >
                 <div *ngIf="formControls.organizationName.errors.required">
@@ -139,7 +119,7 @@
               />
             </div>
 
-            <div class="form-group">  
+            <div class="form-group">
               <select
                 formControlName="projectDomain"
                 name="projectDomain"
@@ -147,14 +127,18 @@
                 class="form-control col-xs-12 col-md-12"
               >
                 <option label="Project Domain" disabled></option>
-                <option label="Healthcare" value="Healthcare">Healthcare</option>
+                <option label="Healthcare" value="Healthcare">
+                  Healthcare
+                </option>
                 <option label="Aerospace" value="Aerospace">Aerospace</option>
-                <option label="Engineering" value="Engineering">Engineering</option>
+                <option label="Engineering" value="Engineering">
+                  Engineering
+                </option>
                 <option label="Other" value="Other">Other</option>
               </select>
             </div>
 
-            <div class="form-group">  
+            <div class="form-group">
               <select
                 formControlName="projectCriticality"
                 name="projectCriticality"
@@ -190,7 +174,7 @@
                 value=""
               />
             </div>
-            
+
             <div class="form-group">
               <input
                 formControlName="projectNextReviewDate"
@@ -203,7 +187,7 @@
               />
             </div>
 
-            <div class="form-group">  
+            <div class="form-group">
               <input
                 formControlName="projectLead"
                 name="projectLead"
@@ -213,7 +197,7 @@
               />
             </div>
 
-            <div class="form-group">  
+            <div class="form-group">
               <select
                 formControlName="roleTrlAssessment"
                 name="roleTrlAssessment"
@@ -221,9 +205,15 @@
                 class="form-control col-xs-12 col-md-12"
               >
                 <option label="Role for this TRL assessment" disabled></option>
-                <option label="Project Lead" value="Project Lead">Project Lead</option>
-                <option label="Project Team Member" value="Project Team Member">Project Team Member</option>
-                <option label="Assigned Reviewer" value="Assigned Reviewer">Assigned Reviewer</option>
+                <option label="Project Lead" value="Project Lead">
+                  Project Lead
+                </option>
+                <option label="Project Team Member" value="Project Team Member">
+                  Project Team Member
+                </option>
+                <option label="Assigned Reviewer" value="Assigned Reviewer">
+                  Assigned Reviewer
+                </option>
               </select>
             </div>
 
@@ -263,17 +253,12 @@
             </div>
 
             <div>
-              <button
-                class="button1"
-                (click)="onPreviousClick()"
-                mat-button
-                matStepperNext
-              >
-                Next
+              <button class="button1" (click)="onSubmit()" mat-button>
+                Save
               </button>
             </div>
           </mat-step>
-          <mat-step label="Family Details">
+          <!-- <mat-step label="Family Details">
             <button type="submit" class="button1">
               + Add Emergency Contact
             </button>
@@ -297,9 +282,9 @@
                   class="form-control col-xs-12 col-md-12"
                 >
                   <option label="Relation" disabled></option>
-                  <option *ngFor="let relationObj of relationA">{{
-                    relationObj
-                  }}</option>
+                  <option *ngFor="let relationObj of relationA">
+                    {{ relationObj }}
+                  </option>
                 </select>
               </div>
 
@@ -325,10 +310,10 @@
             </div>
 
             <div class="form-group consent-div">
-              <input (change)="changeConsent()" type="checkbox" id="consent"/>
+              <input (change)="changeConsent()" type="checkbox" id="consent" />
               <label>
-                <span>  </span>  I hereby consent to allow NETCCN to use my information for
-                clinical decision making.
+                <span> </span> I hereby consent to allow NETCCN to use my
+                information for clinical decision making.
               </label>
             </div>
 
@@ -342,14 +327,18 @@
               <button
                 type="submit"
                 class="button1"
-                [ngClass]="consent === false ? 'opaorganizationNameHalf' : 'opaorganizationNameFull'"
+                [ngClass]="
+                  consent === false
+                    ? 'opaorganizationNameHalf'
+                    : 'opaorganizationNameFull'
+                "
                 [disabled]="consent === false"
                 (click)="onSubmit()"
               >
                 SUBMIT
               </button>
             </div>
-          </mat-step>
+          </mat-step> -->
         </mat-horizontal-stepper>
       </form>
 
@@ -363,11 +352,11 @@
             src="../../../assets/Green-Circle-Tick.svg"
             class="tick-complt"
           />
-          <p>
-            Your registration has been submitted successfully . Thank you.
-          </p>
+          <p>Your project details have been saved successfully . Thank you.</p>
           <p>Have a nice day!</p>
-          <button class="modalClose" (click)="closeModal()">OK</button>
+          <button class="modalClose" (click)="closeModal()">
+            Fill assesment
+          </button>
           <!-- class="modalClose" -->
         </div>
       </div>
@@ -381,9 +370,7 @@
   <div #modal *ngIf="showModal" class="modalContainer modal-dialog-centered">
     <div class="modalBody">
       <img src="../../../assets/Green-Circle-Tick.svg" class="tick-complt" />
-      <p>
-        Your registration has been submitted successfully.
-      </p>
+      <p>Your registration has been submitted successfully.</p>
       <p *ngIf="options === 'As Company'">Please login to take screening.</p>
       <p *ngIf="options === 'As Approval'">
         Please check your registered email.

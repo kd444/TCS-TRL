@@ -3,12 +3,7 @@
   <div class="form-body">
     <div class="center row">
       <div class="col-xs-5">
-        <input
-          name="options"
-          [(ngModel)]="options"
-          type="radio"
-          value="User"
-        />
+        <input name="options" [(ngModel)]="options" type="radio" value="User" />
         <label class="radio-inline patient-clinician-label"> As User</label>
       </div>
 
@@ -25,7 +20,13 @@
     <div *ngIf="options === 'Reviewer' || options === 'User'">
       <form [formGroup]="insertForm" autocomplete="off">
         <!--  (ngSubmit)="onSubmit()" -->
-        <input type="hidden" formControlName="userType" id="userType" name="userType" [ngModel]="options" />
+        <input
+          type="hidden"
+          formControlName="userType"
+          id="userType"
+          name="userType"
+          [ngModel]="options"
+        />
         <div class="form-group">
           <input
             formControlName="firstName"
@@ -57,7 +58,9 @@
           />
 
           <div
-            *ngIf="formControls.lastName.touched && formControls.lastName.invalid"
+            *ngIf="
+              formControls.lastName.touched && formControls.lastName.invalid
+            "
             class="alert alert-danger"
           >
             <div *ngIf="formControls.lastName.errors.required">
@@ -89,14 +92,21 @@
         <div class="form-group">
           <input
             formControlName="password"
-            name="password" 
+            name="password"
             id="password"
             class="form-control col-xs-12 col-md-12"
             placeholder="Password"
             type="password"
           />
-          <div *ngIf="formControls.password.touched && formControls.password.invalid" class="alert alert-danger">
-              <div *ngIf="formControls.password.errors.required">Password is required.</div>
+          <div
+            *ngIf="
+              formControls.password.touched && formControls.password.invalid
+            "
+            class="alert alert-danger"
+          >
+            <div *ngIf="formControls.password.errors.required">
+              Password is required.
+            </div>
           </div>
         </div>
 
@@ -143,9 +153,10 @@
           </div>
         </div>
         <div class="form-group consent-div">
-          <input (change)="changeConsent()" type="checkbox" id="consent"/>
+          <input (change)="changeConsent()" type="checkbox" id="consent" />
           <label>
-            <span>  </span>  I hereby consent to allow TRL Evaluation to use my information.
+            <span> </span> I hereby consent to allow TRL Evaluation to use my
+            information.
           </label>
         </div>
         <br />
@@ -166,23 +177,16 @@
         </div>
       </form>
     </div>
-      <div
-        #modal
-        *ngIf="showModal"
-        class="modalContainer modal-dialog-centered"
-      >
-        <div class="modalBody">
-          <img
-            src="../../../assets/Green-Circle-Tick.svg"
-            class="tick-complt"
-          />
-          <p>Your registration has been submitted successfully . Thank you.</p>
-          <p>Have a nice day!</p>
-          <button class="modalClose" (click)="closeModal()">OK</button>
-          <!-- class="modalClose" -->
-        </div>
+    <div #modal *ngIf="showModal" class="modalContainer modal-dialog-centered">
+      <div class="modalBody">
+        <img src="../../../assets/Green-Circle-Tick.svg" class="tick-complt" />
+        <p>Your registration has been submitted successfully . Thank you.</p>
+        <p>Have a nice day!</p>
+        <button class="modalClose" (click)="closeModal()">OK</button>
+        <!-- class="modalClose" -->
       </div>
     </div>
+  </div>
 
   <div #modal *ngIf="showModal" class="modalContainer modal-dialog-centered">
     <div class="modalBody">
