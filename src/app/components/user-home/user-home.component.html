@@ -33,6 +33,35 @@
           </div>
           <!-- <a class="right-arrow-icon" routerLink="/patient-screening"><fa-icon [icon]="faChevronRight"></fa-icon></a> -->
         </div>
+
+        <div
+          class="button-card go-screening-div"
+          (click)="routeToInformation()"
+        >
+          <img
+            *ngIf="!allowTriageQuestionsRouting"
+            src="../../../assets/Green-Circle-Tick.svg"
+            alt="Survey Done"
+            class="green-tick"
+          />
+
+          <div class="card-icon">
+            <img src="../../../assets/images/icon-screening.svg" />
+          </div>
+          <p class="dark-text">TRL001</p>
+          <p *ngIf="allowTriageQuestionsRouting" class="light-text">
+            Project xxx
+          </p>
+          <div
+            *ngIf="!allowTriageQuestionsRouting"
+            class="light-text success-box"
+          >
+            <p class="success-message">Please accept the invitation</p>
+            <p class="success-message">in your e-mail</p>
+            <p class="success-message">and complete registration</p>
+          </div>
+          <!-- <a class="right-arrow-icon" routerLink="/patient-screening"><fa-icon [icon]="faChevronRight"></fa-icon></a> -->
+        </div>
         <!-- <div class="button-card" routerLink="/available-clinicians">
           <div class="card-icon"><img src="../../../assets/images/icon-clinician.svg"></div>
           <p class="dark-text">Available Clinicians</p>

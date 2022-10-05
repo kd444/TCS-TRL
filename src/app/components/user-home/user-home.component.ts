@@ -39,6 +39,14 @@ export class UserHomeComponent implements OnInit {
     // routerLink="/my-profile"
   }
 
+  routeToInformation() {
+    console.log("befor condition");
+    if (this.allowTriageQuestionsRouting) {
+      console.log("routing");
+
+      this.router.navigate(["/project-details"]);
+    }
+  }
   routeToScreeing() {
     console.log("befor condition");
     if (this.allowTriageQuestionsRouting) {
