@@ -17,7 +17,7 @@ import { ReviewerHomeComponent } from "./components/reviewer-home/reviewer-home.
 import { UserHomeComponent } from "./components/user-home/user-home.component";
 import { AssessmentReportLevelClearedComponent } from "./components/assessment-report-level-cleared/assessment-report-level-cleared.component";
 import { AssessmentReportLevelNotClearedComponent } from "./components/assessment-report-level-not-cleared/assessment-report-level-not-cleared.component";
-
+import { ProjectDetailsComponent } from "./components/project-details/project-details.component";
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "login" },
   { path: "login", component: LoginComponent },
@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: "my-profile", component: PatientDetailsComponent },
   { path: "patient-screening", component: ScreeningComponent },
   { path: "project-registration", component: PatientRegistrationComponent },
+  { path: "project-details", component: ProjectDetailsComponent },
   { path: "user-registration", component: UserRegistrationComponent },
   { path: "reviewer-home", component: ReviewerHomeComponent },
   { path: "user-home", component: UserHomeComponent },
