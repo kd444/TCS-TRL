@@ -55,7 +55,21 @@ body {
 .head-con p {
   font-size: 13px;
 }
+
+.main-sec p {
+  color: #ffffff;
+}
 /* Login sec */
+.main-title {
+  /* position: relative;
+    bottom:4rem; */
+  font-size: 150%;
+  font-weight: bold;
+  margin-top: 5rem;
+  margin-bottom: 9rem;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .login-sec {
   /* position: relative;
     bottom:4rem; */
@@ -63,7 +77,6 @@ body {
   margin-left: 10px;
   margin-right: 10px;
 }
-
 .login-sec p {
   color: #ffffff;
 }

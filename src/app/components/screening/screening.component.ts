@@ -45,13 +45,23 @@ export class ScreeningComponent implements OnInit {
 
   loggedInPatient: Patient;
 
-  showQues: boolean[] = [false, false, false, false, false, false, false, false, false];
+  showQues: boolean[] = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
 
   constructor(
     private router: Router,
     private mainService: MainService,
     private http: HttpClient
-  ) { }
+  ) {}
 
   tabParentQuestions: string[] = [
     "Has the actual system successfully operated over full range of conditions in operational environment?",
@@ -62,9 +72,8 @@ export class ScreeningComponent implements OnInit {
     "Has the component / system been validated in lab?",
     "Has the proof of concept been demonstrated in a simulated environment?",
     "Has the equipment and process concept been formulated?",
-    "Have the basic technology and principles been observed and reported?"
-  ]
-
+    "Have the basic technology and principles been observed and reported?",
+  ];
 
   questionsForTab9: string[] = [
     "Operational Concept has been implemented successfully",
@@ -80,7 +89,7 @@ export class ScreeningComponent implements OnInit {
     "Actual mission system 'flight proven' through successful mission operations (OT&E completed)",
     "All manufacturing processes controlled to 6-sigma  or appropriate quality level",
     "Stable production",
-    "All documentation completed"
+    "All documentation completed",
   ];
 
   questionsForTab8: string[] = [
@@ -105,8 +114,7 @@ export class ScreeningComponent implements OnInit {
     "VV & A validation step completed, software works in real world",
     "DT & E completed, system meets specifications",
     "VV & A accreditation step completed, software authorized for use in intended weapon system",
-    "Ready for Full Rate Production"
-
+    "Ready for Full Rate Production",
   ];
 
   questionsForTab7: string[] = [
@@ -138,7 +146,7 @@ export class ScreeningComponent implements OnInit {
     "'Beta' version software has been released",
     "Fully integrated prototype demonstrated in actual or simulated operational environment",
     "System prototype successfully tested in a field environment.",
-    "Ready for Low Rate Initial Production (LRIP)"
+    "Ready for Low Rate Initial Production (LRIP)",
   ];
 
   questionsForTab6: string[] = [
@@ -188,7 +196,7 @@ export class ScreeningComponent implements OnInit {
     "Acquisition program milestones established",
     "Value analysis includes business case",
     "Technical alternatives include 'do nothing case'",
-    "Formal requirements document available"
+    "Formal requirements document available",
   ];
 
   questionsForTab5: string[] = [
@@ -240,7 +248,7 @@ export class ScreeningComponent implements OnInit {
     "IPT develops requirements matrix with thresholds and objectives",
     "Physical work breakdown structure available",
     "Value analysis includes life-cycle cost analysis",
-  ]
+  ];
 
   questionsForTab4: string[] = [
     "Cross technology issues (if any) have been fully identified",
@@ -288,7 +296,7 @@ export class ScreeningComponent implements OnInit {
     "Formal risk management program initiated",
     "Preliminary Failure Mode and Effects Analysis (FMEA) or Risk Waterfall analysis performed",
     "Technology availability dates established",
-  ]
+  ];
 
   questionsForTab3: string[] = [
     "Academic environment",
@@ -322,7 +330,7 @@ export class ScreeningComponent implements OnInit {
     "Risk areas identified in general terms",
     "Risk mitigation strategies identified",
     "Rudimentary best value analysis performed, not including cost factors",
-  ]
+  ];
 
   questionsForTab2: string[] = [
     "Customer identified",
@@ -351,7 +359,7 @@ export class ScreeningComponent implements OnInit {
     "Know what experiments you need to do (research approach)",
     "Qualitative idea of risk areas (cost, schedule, performance)",
     "Have rough idea of how to market technology (Who's interested, how will they find out about it?)",
-  ]
+  ];
 
   questionsForTab1: string[] = [
     "'Back of envelope' environment",
@@ -366,7 +374,7 @@ export class ScreeningComponent implements OnInit {
     "Know who cares about technology, e.g., sponsor, money source",
     "Research hypothesis formulated",
     "Know who will perform research and where it will be done",
-  ]
+  ];
 
   loopArray: number[] = [1, 2, 3, 4, 5, 6, 7];
   ngOnInit(): void {
@@ -398,7 +406,6 @@ export class ScreeningComponent implements OnInit {
       this.isShow7 = false;
     }
 
-
     this.elTabs.forEach((tab) =>
       tab.nativeElement.classList.remove("active-tab")
     );
@@ -408,10 +415,13 @@ export class ScreeningComponent implements OnInit {
   addData(event) {
     this.dataQA[event.question] = [event.answer, event.file];
     console.log(this.dataQA);
-
   }
   submitData(tID) {
-    this.dataQA[this.tabParentQuestions[tID - 1]] = [true, this.TRLFile, this.TRLTextArea]
+    this.dataQA[this.tabParentQuestions[tID - 1]] = [
+      true,
+      this.TRLFile,
+      this.TRLTextArea,
+    ];
 
     console.log(Object.keys(this.dataQA).length);
     console.log(Object.values(this.dataQA));
@@ -438,7 +448,8 @@ export class ScreeningComponent implements OnInit {
       client_secret: "UeUtzpx4rKTptJ85SRdMBK2wWr0b",
     };
 
-    const pateintSharePointUrl = "https://mscha.mtec.mural-gehc.com/api/1.0.0/mtec/patient";
+    const pateintSharePointUrl =
+      "https://mscha.mtec.mural-gehc.com/api/1.0.0/mtec/patient";
     //"https://muralapp.eastus.cloudapp.azure.com/api/1.0.0/mtec/patient";
 
     this.http
@@ -458,13 +469,11 @@ export class ScreeningComponent implements OnInit {
     });
 
     let surveyScore = qaDataArray.reduce((score, qaObject) => {
-      if (qaObject.answer == "Yes")
-        score = score + 1;
+      if (qaObject.answer == "Yes") score = score + 1;
       return score;
-    }, 0)
+    }, 0);
 
     surveyScore = Math.round((surveyScore / 28) * 100);
-
 
     console.log("QA data array: ", qaDataArray);
     return {
@@ -483,36 +492,36 @@ export class ScreeningComponent implements OnInit {
       },
       triageSurvey: [...qaDataArray],
       riskScore: surveyScore,
-      emergencyContacts: [{
-        name: patientDetails.fullName || "name",
-        mobileNumber: patientDetails.familyMobileNumber || "number",
-        relation: patientDetails.relation || "none"
-      }]
+      emergencyContacts: [
+        {
+          name: patientDetails.fullName || "name",
+          mobileNumber: patientDetails.familyMobileNumber || "number",
+          relation: patientDetails.relation || "none",
+        },
+      ],
     };
   }
 
   navigateBack() {
     // UNCOMMENT !!
-    this.router.navigate(["/patient-home"]);
+    this.router.navigate(["/user-home"]);
   }
   closeModal() {
     this.showModal = false;
     // UNCOMMENT !!
-    this.router.navigate(["/patient-home"]);
+    this.router.navigate(["/user-home"]);
   }
 
   ChangeVisiblity(e, tabId) {
-
     if (e.target.value == "Yes") {
       // this.showQue = true;
       this.showQues[tabId] = true;
-
     } else {
       // this.showQue = false;
       this.showQues[tabId] = false;
       if (tabId != 9) {
         this.tabId = tabId + 1;
-        this.selectTab(tabId, this.tabId)
+        this.selectTab(tabId, this.tabId);
       }
     }
   }
