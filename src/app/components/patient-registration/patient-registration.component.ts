@@ -92,21 +92,21 @@ export class PatientRegistrationComponent implements OnInit {
       projectName: ["", Validators.required],
       projectReferenceNumber: ["", Validators.required],
       //sex: ['', Validators.required],
-      organizationName: ["", Validators.required],
+      //organizationName: ["", Validators.required],
       //state: ['', Validators.required],
       fundingAuthority: ["", Validators.required],
       fundingAmount: "",
-      projectDomain: ["", Validators.required],
-      projectCriticality: ["", Validators.required],
-      projectStartDate: ["", Validators.required],
-      projectEndDate: ["", Validators.required],
-      projectNextReviewDate: ["", Validators.required],
+      projectDomain: "",
+      projectCriticality: "",
+      projectStartDate: "",
+      projectEndDate: "",
+      projectNextReviewDate: "",
       projectLead: "",
       roleTrlAssessment: ["", Validators.required],
       //zipCode: ['', Validators.required],
       //mobileNumber: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-      emailId: ["", Validators.required],
-      trlAssessmentDate: ["", Validators.required],
+      emailId: "",
+      trlAssessmentDate: "",
       //password: ['', Validators.required],
       fullName: "",
       relation: "",
@@ -143,7 +143,7 @@ export class PatientRegistrationComponent implements OnInit {
 
   closeModal() {
     this.showModal = false;
-    this.router.navigate(["/patient-screening"]);
+    this.router.navigate(["/assessment-submit"]);
   }
 
   changeConsent() {

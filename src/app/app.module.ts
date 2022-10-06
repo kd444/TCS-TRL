@@ -47,7 +47,7 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { AssessmentDetailsComponent } from './components/assessment-details/assessment-details.component';
 import { AssessmentReviewComponent } from './components/assessment-review/assessment-review.component';
-
+//import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +74,8 @@ import { AssessmentReviewComponent } from './components/assessment-review/assess
     AssessmentReportLevelNotClearedComponent,
     // ProjectDetailsComponent,
     AssessmentDetailsComponent,
-    AssessmentReviewComponent
+    AssessmentReviewComponent,
+    ProjectDetailsComponent
   ],
   imports: [
     BrowserModule,

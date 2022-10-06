@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-assessment-report-level-not-cleared',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssessmentReportLevelNotClearedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  goToHome() {
+    this.router.navigate(["/user-home"]);
+  }
 }

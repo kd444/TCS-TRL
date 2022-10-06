@@ -26,6 +26,10 @@
   margin-top: 6em;
 }
 
+.form-body table {
+  text-align: left;
+}
+
 .center {
   margin: auto;
   /* width: 60%; */

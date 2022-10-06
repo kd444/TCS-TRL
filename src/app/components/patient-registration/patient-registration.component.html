@@ -1,5 +1,5 @@
 <div class="parent">
-  <p class="heading">Registration</p>
+  <!--p class="heading">Registration</p-->
   <div class="form-body">
     <div>
       <form [formGroup]="insertForm" autocomplete="off">
@@ -52,7 +52,7 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <!--div class="form-group">
               <input
                 formControlName="organizationName"
                 name="organizationName"
@@ -72,7 +72,7 @@
                   Organization Name is required.
                 </div>
               </div>
-            </div>
+            </div-->
 
             <!-- <div class="form-group">
               <select
@@ -215,6 +215,17 @@
                   Assigned Reviewer
                 </option>
               </select>
+              <div
+                *ngIf="
+                  formControls.roleTrlAssessment.touched &&
+                  formControls.roleTrlAssessment.invalid
+                "
+                class="alert alert-danger"
+              >
+                <div *ngIf="formControls.roleTrlAssessment.errors.required">
+                  Role for this TRL assessment is required.
+                </div>
+              </div>
             </div>
 
             <div class="form-group">
@@ -223,7 +234,7 @@
                 name="emailId"
                 id="emailId"
                 class="form-control col-xs-12 col-md-12"
-                placeholder="Contact email ID"
+                placeholder="Alternate email ID"
                 type="email"
               />
 
@@ -370,7 +381,7 @@
   <div #modal *ngIf="showModal" class="modalContainer modal-dialog-centered">
     <div class="modalBody">
       <img src="../../../assets/Green-Circle-Tick.svg" class="tick-complt" />
-      <p>Your registration has been submitted successfully.</p>
+      <p>Project details have been saved successfully.</p>
       <p *ngIf="options === 'As Company'">Please login to take screening.</p>
       <p *ngIf="options === 'As Approval'">
         Please check your registered email.
