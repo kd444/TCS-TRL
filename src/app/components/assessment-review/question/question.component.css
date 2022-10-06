@@ -5,7 +5,7 @@
     margin: 20px auto;
     margin-bottom: 22px;
     /* background-color: #ffffff; */
-    display: flex;
+    /* display: flex; */
     /* height: 90px; */
     /* background:url('../../../../assets/btn-profile.svg'); */
     /* align-items:center; */
@@ -118,6 +118,13 @@ span.que-no {
 .input_ques2 {
     float: right;
     margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.input_ques3 {
+    float: right;
+    /* margin-left: auto; */
     margin-top: auto;
     margin-bottom: auto;
 }

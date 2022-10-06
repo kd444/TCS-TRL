@@ -13,6 +13,7 @@ export class QuestionComponent2 implements OnInit {
   @Input() fileID: File;
   enableCheckbox: boolean = false;
   fileID2: string = "";
+  Comments: string = "Suitable Comments";
 
   // @Output() answerEvent: EventEmitter<surveyQuestion> = new EventEmitter();
   constructor() {}
