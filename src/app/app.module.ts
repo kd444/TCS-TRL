@@ -22,6 +22,7 @@ import { ScreeningComponent } from "./components/screening/screening.component";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { QuestionComponent } from "./components/screening/question/question.component";
+import { QuestionComponent2 } from "./components/assessment-review/question/question.component";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabaseModule } from "@angular/fire/database";
@@ -44,6 +45,9 @@ import { AssessmentReportLevelNotClearedComponent } from "./components/assessmen
 
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
+import { AssessmentDetailsComponent } from './components/assessment-details/assessment-details.component';
+import { AssessmentReviewComponent } from './components/assessment-review/assessment-review.component';
+
 
 @NgModule({
   declarations: [
@@ -60,6 +64,7 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
     LoginComponent,
     ScreeningComponent,
     QuestionComponent,
+    QuestionComponent2,
     ClinicianRegistrationComponent,
     PatientRegistrationComponent,
     UserRegistrationComponent,
@@ -67,7 +72,9 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
     UserHomeComponent,
     AssessmentReportLevelClearedComponent,
     AssessmentReportLevelNotClearedComponent,
-    ProjectDetailsComponent,
+    // ProjectDetailsComponent,
+    AssessmentDetailsComponent,
+    AssessmentReviewComponent
   ],
   imports: [
     BrowserModule,

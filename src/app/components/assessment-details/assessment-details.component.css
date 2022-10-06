@@ -1,0 +1,12 @@
+.header_border{
+    background-color: #2a4b76;
+    height: 140px ;
+    padding: 20px 
+}
+th{
+    font-weight: 500 !important;
+    text-align: center;
+}
+td{
+    text-align: center;
+}

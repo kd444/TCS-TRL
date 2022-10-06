@@ -29,6 +29,6 @@ export class ReviewerHomeComponent implements OnInit {
   }
   routeToViewScreenings(param: number){
    
-    this.router.navigate(["/screenings"] , { queryParams: { id: param}})
+    this.router.navigate(["/assessment"] , { queryParams: { id: param}})
   }
 }
