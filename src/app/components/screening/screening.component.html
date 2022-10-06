@@ -17,51 +17,51 @@
                     <div class="screen-step">
                         <ul>
                             <li #tab (click)="selectTab($event, 1)" [ngClass]="tabId!=1?'disabled':'enabled'">
-                                <span class="tick-mark t1" [hidden]="isShow">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t1" [hidden]="isShow">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span>
                                 <!-- <span [hidden] = “isShow” ></span> -->
 
                                 TRL9
                             </li>
                             <li #tab (click)="selectTab($event, 2)" [ngClass]="tabId!=2?'disabled':'enabled'">
-                                <span class="tick-mark t2" [hidden]="isShow1">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t2" [hidden]="isShow1">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span> TRL8
                             </li>
                             <li #tab (click)="selectTab($event, 3)" [ngClass]="tabId!=3?'disabled':'enabled'">
-                                <span class="tick-mark t3" [hidden]="isShow2">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t3" [hidden]="isShow2">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span> TRL7
                             </li>
                             <li #tab (click)="selectTab($event, 4)" [ngClass]="tabId!=4?'disabled':'enabled'">
-                                <span class="tick-mark t4" [hidden]="isShow3">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t4" [hidden]="isShow3">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span> TRL6
                             </li>
                             <li #tab (click)="selectTab($event, 5)" [ngClass]="tabId!=5?'disabled':'enabled'">
-                                <span class="tick-mark t5" [hidden]="isShow4">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t5" [hidden]="isShow4">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span> TRL5
                             </li>
                             <li #tab (click)="selectTab($event, 6)" [ngClass]="tabId!=6?'disabled':'enabled'">
-                                <span class="tick-mark t6" [hidden]="isShow5">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t6" [hidden]="isShow5">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span> TRL4
                             </li>
                             <li #tab (click)="selectTab($event, 7)" [ngClass]="tabId!=7?'disabled':'enabled'">
-                                <span class="tick-mark t7" [hidden]="isShow6">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t7" [hidden]="isShow6">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span> TRL3
                             </li>
                             <li #tab (click)="selectTab($event, 8)" [ngClass]="tabId!=8?'disabled':'enabled'">
-                                <span class="tick-mark t8" [hidden]="isShow7">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t8" [hidden]="isShow7">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span> TRL2
                             </li>
                             <li #tab (click)="selectTab($event, 9)" [ngClass]="tabId!=9?'disabled':'enabled'">
-                                <span class="tick-mark t9" [hidden]="isShow8">
-                  <img src="../../../assets/Green-Circle-Tick.svg" />
+                                <span class="cross-icon t9" [hidden]="isShow8">
+                  <img src="../../../assets/close-red-icon.svg" class = "cross-icon" />
                 </span> TRL1
                             </li>
                         </ul>
@@ -300,7 +300,7 @@
  -->
 
                         <div *ngIf="tabId == 1" [ngClass]="showQues[1] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
-                            <div *ngFor="let question of questionsForTab1">
+                            <div *ngFor="let question of questionsForTab9">
                                 <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL9 ' + question">
                                 </question>
                             </div>
@@ -308,7 +308,7 @@
 
                         <div *ngIf="tabId == 2" [ngClass]="showQues[2] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
                             <!-- class="questionarie-list {{ this.showQue }}" -->
-                            <div *ngFor="let question of questionsForTab2">
+                            <div *ngFor="let question of questionsForTab8">
                                 <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL8 ' + question">
                                 </question>
                             </div>
@@ -316,14 +316,14 @@
 
                         <div *ngIf="tabId == 3" [ngClass]="showQues[3] === true ? 'questionarie-list-true' : 'questionarie-list-false' ">
                             <!-- class="questionarie-list {{ this.showQue }}" -->
-                            <div *ngFor="let question of questionsForTab3">
+                            <div *ngFor="let question of questionsForTab7">
                                 <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL7 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 4" [ngClass]="showQues[4] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab4">
+                            <div *ngFor="let question of questionsForTab6">
                                 <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL6 ' + question">
                                 </question>
                             </div>
@@ -337,28 +337,28 @@
                         </div>
 
                         <div *ngIf="tabId == 6" [ngClass]="showQues[6] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab6">
+                            <div *ngFor="let question of questionsForTab4">
                                 <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL4 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 7" [ngClass]="showQues[7] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab7">
+                            <div *ngFor="let question of questionsForTab3">
                                 <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL3 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 8" [ngClass]="showQues[8] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab8">
+                            <div *ngFor="let question of questionsForTab2">
                                 <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL2 ' + question">
                                 </question>
                             </div>
                         </div>
 
                         <div *ngIf="tabId == 9" [ngClass]="showQues[9] === true ? 'questionarie-list-true' : 'questionarie-list-false'">
-                            <div *ngFor="let question of questionsForTab9">
+                            <div *ngFor="let question of questionsForTab1">
                                 <question [questionText]="question" (answerEvent)="addData($event)" [fileID]="'TRL1 ' + question">
                                 </question>
                             </div>
@@ -369,14 +369,14 @@
                         <input type="submit" name="Save" value="Save" style="margin-right:25px" />
                         <!-- </div>
                     <div class="scre-button"> -->
-                        <input type="submit" name="Submit" (click)="submitData(tabId)" />
+                        <input type="submit" name="Submit" [ngClass]="enableSubmit?'enabled':'disabled'" (click)="submitData(tabId)" />
                     </div>
                 </div>
-                <div #modal *ngIf="false" class="modalContainer modal-dialog-centered">
+                <div #modal *ngIf="showModal" class="modalContainer modal-dialog-centered">
                     <div class="modalBody">
                         <img src="../../../assets/Green-Circle-Tick.svg" class="tick-complt" />
                         <p>
-                            Please accept the invitation in your e-mail and complete registration
+                            Please select atleast one applicable checkbox
                         </p>
                         <button class="modalClose" (click)="closeModal()">OK</button>
                     </div>

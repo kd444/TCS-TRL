@@ -2,7 +2,7 @@ export interface Patient {
     id: string;
     projectName: string;
     projectReferenceNumber: string;
-    organizationName: string;
+    //organizationName: string;
     state: string;
     fundingAuthority:string;
     fundingAmount:string;

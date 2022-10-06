@@ -18,6 +18,10 @@ import { UserHomeComponent } from "./components/user-home/user-home.component";
 import { AssessmentReportLevelClearedComponent } from "./components/assessment-report-level-cleared/assessment-report-level-cleared.component";
 import { AssessmentReportLevelNotClearedComponent } from "./components/assessment-report-level-not-cleared/assessment-report-level-not-cleared.component";
 import { ProjectDetailsComponent } from "./components/project-details/project-details.component";
+import { AssessmentDetailsComponent } from './components/assessment-details/assessment-details.component';
+import { AssessmentReviewComponent } from './components/assessment-review/assessment-review.component';
+
+
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "login" },
   { path: "login", component: LoginComponent },
@@ -26,7 +30,7 @@ const routes: Routes = [
   { path: "clinician-home", component: ClinicianHomeComponent },
   { path: "available-clinicians", component: AvailableCliniciansComponent },
   { path: "my-profile", component: PatientDetailsComponent },
-  { path: "patient-screening", component: ScreeningComponent },
+  { path: "assessment-submit", component: ScreeningComponent },
   { path: "project-registration", component: PatientRegistrationComponent },
   { path: "project-details", component: ProjectDetailsComponent },
   { path: "user-registration", component: UserRegistrationComponent },
@@ -37,6 +41,10 @@ const routes: Routes = [
     path: "report-not-cleared",
     component: AssessmentReportLevelNotClearedComponent,
   },
+  { path: 'assessment', component: AssessmentDetailsComponent},
+  { path: 'assessment-review', component: AssessmentReviewComponent}
+  
+
 ];
 
 @NgModule({

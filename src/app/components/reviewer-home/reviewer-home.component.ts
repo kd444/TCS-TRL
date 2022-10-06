@@ -27,8 +27,8 @@ export class ReviewerHomeComponent implements OnInit {
     this.pendingPatients = 0;
     //this.virtualWardPatients = this.mainService.getAllUsers().filter(patient => patient.category ===  "Virtual Ward" ).length;
   }
-  routeToViewScreenings(param: number){
-   
-    this.router.navigate(["/screenings"] , { queryParams: { id: param}})
+  routeToViewScreenings(param: number){   
+    //this.router.navigate(["/assessment"] , { queryParams: { id: param}})
+    this.router.navigate(["/assessment"])
   }
 }

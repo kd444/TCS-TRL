@@ -1,0 +1,31 @@
+<div class="ques2 ques-list">
+    <div style="display: flex;">
+
+        <label class="chk-container">   
+
+  <input type="checkbox" 
+  class="ques-checkbox" 
+  (change)="getAnswer()" disabled [checked]="enableCheckbox">
+  <!-- [disabled]="disableQue == true" -->
+      <span class="checkmark"></span>
+
+      <!-- <input type="text" value="{{this.disableQue}}"> -->
+    </label>
+        <p>{{questionText}}</p>
+
+
+        <!-- <input *ngIf="!enableCheckbox" type="file" id="{{fileID}}" name="{{fileID}}" class="input_ques2" disabled> -->
+        <!-- <input *ngIf="enableCheckbox" type="checkbox" disabled class="ques-checkbox" checked> -->
+        <input *ngIf="enableCheckbox" type="button" id="Approve" name="Approve" class="input_ques2" value="Approve" style="margin-right: 1%">
+        <input *ngIf="enableCheckbox" type="button" id="Reject" name="Reject" class="input_ques3" value="Reject" style="margin-right: 1%">
+        <span *ngIf='enableCheckbox' style="line-height: 3em;
+    margin-right: 15px;">
+      {{fileID2}}
+    </span>
+
+    </div>
+    <div style="margin-left: 1%; display: flex; padding-bottom: 1%;" *ngIf='enableCheckbox'>
+        Comments:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <textarea name="comments" [(ngModel)]="Comments" cols="100" rows="2"></textarea>
+    </div>
+</div>

@@ -36,6 +36,7 @@ export class ScreeningComponent implements OnInit {
   showSurvey: boolean = false;
   showModal: boolean = false;
   showQue: boolean = false;
+  enableSubmit: boolean = false;
 
   TRLTextArea: string = "";
   TRLFile: File;
@@ -61,7 +62,7 @@ export class ScreeningComponent implements OnInit {
     private router: Router,
     private mainService: MainService,
     private http: HttpClient
-  ) {}
+  ) { }
 
   tabParentQuestions: string[] = [
     "Has the actual system successfully operated over full range of conditions in operational environment?",
@@ -422,20 +423,36 @@ export class ScreeningComponent implements OnInit {
       this.TRLFile,
       this.TRLTextArea,
     ];
-
-    console.log(Object.keys(this.dataQA).length);
-    console.log(Object.values(this.dataQA));
-    // send data to db
-    this.showModal = true;
-    console.log(this.showModal);
-    console.log(this.dataQA);
-    const qaDataObj = { surveyData: this.dataQA };
-    // this.mainService.updatePatientByMobileNumber("333333" , qaDataObj);
-    this.mainService.setHideShowScreeingPopOver(true);
-    // this.modalControl.nativeElement.classList.remove("display-none");
-    let userId = this.mainService.getLoggedInUser().mobileNumber;
-    this.mainService.updatePatientByMobileNumber(userId, qaDataObj);
-    // this.sendPatientDataToSharePoint(this.loggedInPatient, this.dataQA);
+    if (tID != 9) {
+      if (Object.keys(this.dataQA).length >= 2) {
+        this.router.navigate(["/report-cleared"])
+      }
+      else{
+        this.showModal = true;
+      }
+    }
+    else {
+      if (Object.keys(this.dataQA).length >= 2) {
+        // this.router.navigate(["/report-cleared"])
+        this.router.navigate(["/report-not-cleared"])
+      }
+      else{
+        this.showModal = true;
+      }
+    }
+    // console.log(Object.keys(this.dataQA).length);
+    // console.log(Object.values(this.dataQA));
+    // // send data to db
+    // this.showModal = true;
+    // console.log(this.showModal);
+    // console.log(this.dataQA);
+    // const qaDataObj = { surveyData: this.dataQA };
+    // // this.mainService.updatePatientByMobileNumber("333333" , qaDataObj);
+    // this.mainService.setHideShowScreeingPopOver(true);
+    // // this.modalControl.nativeElement.classList.remove("display-none");
+    // let userId = this.mainService.getLoggedInUser().mobileNumber;
+    // this.mainService.updatePatientByMobileNumber(userId, qaDataObj);
+    // // this.sendPatientDataToSharePoint(this.loggedInPatient, this.dataQA);
   }
 
   sendPatientDataToSharePoint(patientDetails: Patient, dataQA) {
@@ -509,16 +526,18 @@ export class ScreeningComponent implements OnInit {
   closeModal() {
     this.showModal = false;
     // UNCOMMENT !!
-    this.router.navigate(["/user-home"]);
+    // this.router.navigate(["/patient-screening"]);
   }
 
   ChangeVisiblity(e, tabId) {
     if (e.target.value == "Yes") {
       // this.showQue = true;
       this.showQues[tabId] = true;
+      this.enableSubmit = true;
     } else {
       // this.showQue = false;
       this.showQues[tabId] = false;
+      this.enableSubmit = false;
       if (tabId != 9) {
         this.tabId = tabId + 1;
         this.selectTab(tabId, this.tabId);
