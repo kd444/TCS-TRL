@@ -39,7 +39,7 @@ export class AssessmentReviewComponent implements OnInit {
   showQue: boolean = false;
   enableSubmit: boolean = false;
 
-  TRLTextArea: string = "";
+  TRLTextArea: string = "Submitting Artifacts for TRL7";
   TRLFile: File;
   @ViewChild("modal") modalControl: ElementRef;
   @ViewChildren("tab") elTabs: QueryList<ElementRef>;
@@ -523,7 +523,7 @@ export class AssessmentReviewComponent implements OnInit {
 
   navigateBack() {
     // UNCOMMENT !!
-    this.router.navigate(["/user-home"]);
+    this.router.navigate(["/reviewer-home"]);
   }
   closeModal() {
     this.showModal = false;
